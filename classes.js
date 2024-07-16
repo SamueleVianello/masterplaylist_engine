@@ -11,6 +11,13 @@ function arrayCopy(arr){
     return arr.map( item =>{ return {...item}} );
 }
 
+function toMMSS( s){
+    let min = Math.floor(s/60);
+    let seconds = s-min*60;
+    return ((min<10 )? "0":"") +min+":"+((seconds<10 )? "0":"")+seconds;
+}
+
+
 export class Track {
     constructor(track_id, total_time) {
         this.id = track_id;
@@ -21,6 +28,7 @@ export class Track {
         return new Track(this.id, this.total_time)
     }
 }
+
 
 export class Playlist {
     constructor(id, tracks = []) {
@@ -53,7 +61,7 @@ export class Playlist {
     }
 
     static logTracks(tracks){
-        const trackIds = tracks.map(track => track.id);
+        const trackIds = tracks.map(track => ""+track.id + '  ' +toMMSS(track.total_time));
         console.log('Track IDs:', trackIds);
     }
 }
