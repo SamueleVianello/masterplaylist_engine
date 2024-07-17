@@ -11,10 +11,26 @@ fetch('./spotify_playlist.json')
         let imported_tracks = data.tracks.items.map(t => new Track(t.track.id, t.track.duration_ms *0.001));
         // create playlist from fetched data and imported_tracks
         let imported_playlist = new Playlist(data.id, imported_tracks);
-        Playlist.logTracks(imported_tracks);
-        console.log("playlist ID:", imported_playlist.id);
-        console.log("playlist duration:", toHHMMSS(imported_playlist.total_time));
         
+        //// log results
+        //Playlist.logTracks(imported_tracks);
+        //console.log("playlist ID:", imported_playlist.id);
+        //console.log("playlist duration:", toHHMMSS(imported_playlist.total_time));
+        
+        let sec1 = new Section("XXX", 10*60, imported_playlist);
+        let sec2 = new Section("YYY", 15*60, imported_playlist);
+        let sec3 = new Section("ZZZ", 20*60, imported_playlist);
+        let secs = [sec1,sec2,sec3];
+
+        let my_master = new Master("testmaster", 45*60, secs);
+        my_master.generateMaster();
+
+        // The generated array of tracks is saved in my_master.tracks:
+        Playlist.logTracks(my_master.tracks);
+
+        // Get a simple array of trackIDs
+        let track_list = getArrayOfTrackIDs(my_master.tracks);
+        console.log(track_list)
     })
       .catch(error => console.error('Error fetching the JSON data:', error));
 

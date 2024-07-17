@@ -156,6 +156,7 @@ export class Master{
     generateMaster(){
         //TODO improve code
         let n = this.sections.length;
+        console.log(n);
         for(let i =0; i<n; i++){
             this.sections[i].createTrackList();
             this.tracks = this.tracks.concat(this.sections[i].tracks);
