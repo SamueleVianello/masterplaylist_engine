@@ -1,5 +1,5 @@
 
-function shuffleArray(array) {
+export function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]]; // Swap elements
@@ -7,14 +7,22 @@ function shuffleArray(array) {
     return array;
 }
 
-function arrayCopy(arr){
+export function arrayCopy(arr){
     return arr.map( item =>{ return {...item}} );
 }
 
-function toMMSS( s){
-    let min = Math.floor(s/60);
-    let seconds = s-min*60;
-    return ((min<10 )? "0":"") +min+":"+((seconds<10 )? "0":"")+seconds;
+export function toHHMMSS( s){
+    let h= Math.floor(s/3600);
+    let min = Math.floor((s-h*3600)/60);
+    let sec = Math.floor(s-h*3600-min*60);
+    let str_h = (h<1 ?"" :( h<10 ? "0":"")+h +":");
+    let str_min = ( min<10 ? "0":"") +min+":";
+    let str_sec = (sec<10 ? "0":"") +sec;
+    return  str_h+str_min+str_sec;
+}
+
+export function getArrayOfTrackIDs(tracks){
+    return tracks.map( (t) => t.id);
 }
 
 
@@ -61,7 +69,7 @@ export class Playlist {
     }
 
     static logTracks(tracks){
-        const trackIds = tracks.map(track => ""+track.id + '  ' +toMMSS(track.total_time));
+        const trackIds = tracks.map(track => ""+track.id + '  ' +toHHMMSS(track.total_time));
         console.log('Track IDs:', trackIds);
     }
 }

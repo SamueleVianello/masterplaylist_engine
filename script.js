@@ -1,7 +1,25 @@
 
 import {Track, Playlist, Section, Master} from './classes.js';
+import {getArrayOfTrackIDs, toHHMMSS} from './classes.js';
 
 
+let imported_tracks=[];
+fetch('./spotify_playlist.json')
+      .then(response => response.json())
+      .then(data => {
+        // map tracks into array
+        let imported_tracks = data.tracks.items.map(t => new Track(t.track.id, t.track.duration_ms *0.001));
+        // create playlist from fetched data and imported_tracks
+        let imported_playlist = new Playlist(data.id, imported_tracks);
+        Playlist.logTracks(imported_tracks);
+        console.log("playlist ID:", imported_playlist.id);
+        console.log("playlist duration:", toHHMMSS(imported_playlist.total_time));
+        
+    })
+      .catch(error => console.error('Error fetching the JSON data:', error));
+
+
+/*
 let list1 = [
     new Track('a1',96),
     new Track('a2',100),
@@ -54,5 +72,10 @@ my_master.addSection(sec3);
 
 my_master.generateMaster();
 
-// The final array of tracks is saved in my_master.tracks:
+// The array of tracks is saved in my_master.tracks:
 Playlist.logTracks(my_master.tracks);
+
+// Get a simple array of trackIDs
+let track_list = getArrayOfTrackIDs(my_master.tracks);
+console.log(track_list)
+*/
