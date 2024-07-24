@@ -12,13 +12,15 @@ export function arrayCopy(arr){
 }
 
 export function toHHMMSS( s){
+    let neg_flag = s<0;
+    s = Math.abs(s);
     let h= Math.floor(s/3600);
     let min = Math.floor((s-h*3600)/60);
     let sec = Math.floor(s-h*3600-min*60);
     let str_h = (h<1 ?"" :( h<10 ? "0":"")+h +":");
     let str_min = ( min<10 ? "0":"") +min+":";
     let str_sec = (sec<10 ? "0":"") +sec;
-    return  str_h+str_min+str_sec;
+    return  (neg_flag? "-":"")+str_h+str_min+str_sec;
 }
 
 export function getArrayOfTrackIDs(tracks){
@@ -81,16 +83,17 @@ export class Section{
         this.total_time = total_time;
         this.playlist = playlist;
         this.tracks = [];
+        this.within_tolerance = false;
+
 
         // technical variables
         this.actual_time = 0;  //actual length of generate track_list
         this.excess_time = 0; // how much actual_time is away from the total_time
-        
     }
 
     createTrackList( tolerance = 60, start_time = 0){
-        // console.log("STARTING TRACKLIST CREATION")
-        //TODO: complete algorithm to pick tracks and fill the section. Save excess time 
+        //console.log("STARTING TRACKLIST CREATION")
+        //console.log("Start time", toHHMMSS(start_time));
 
         // Make sure we can fill the section with linked playlist, otherwise exit with error
         if ((this.total_time - this.playlist.total_time ) > tolerance) {
@@ -98,30 +101,52 @@ export class Section{
         }
 
         // copy and shuffle the tracks in the playlist
-        let shuffled_tracks = this.playlist.tracks.map( item =>{ return {...item}
-        });
-
+        let shuffled_tracks = this.playlist.tracks.map( item =>{ return {...item}}); // magic trick to clone array
         shuffleArray(shuffled_tracks); 
+
         // select all tracks up to the one that makes us exceed the available time (total_time - start_time) 
-        let i = 0;
+        let i = -1;
         let curr_list = [];
         let curr_time = 0;
         let len = shuffled_tracks.length;
-        while ( (i < len) & (curr_time < (this.total_time-start_time))) {
+        let tol_check = Math.abs( curr_time-(this.total_time - start_time)) < tolerance;
+        while ( ((i+1) < len) &  (curr_time < (this.total_time-start_time)) & !tol_check) {
+            ++i;
             //console.log("checking "+i);
             curr_list.push(shuffled_tracks[i]);
             curr_time += shuffled_tracks[i].total_time;
-            i++;
+            tol_check = (Math.abs( curr_time-(this.total_time - start_time)) < tolerance);
+            //console.log((Math.abs( curr_time-(this.total_time - start_time)) < tolerance))
         }
 
-        // TODO: if curr_time is NOT within tolerance try to swap last track for a different one
-        let best_i = i-1;
-        
+        // if curr_time is NOT within tolerance try to swap last track for a better one
+        if (!tol_check){
+            curr_list.pop();
+            curr_time -= shuffled_tracks[i].total_time;
+            let best_i = i;
+            let best_diff = Math.abs(curr_time + shuffled_tracks[i].total_time -(this.total_time - start_time));
+            
+            console.log(tol_check);
+            while(i<len & !tol_check){
+                tol_check = (Math.abs(curr_time + shuffled_tracks[i].total_time -(this.total_time - start_time)) < tolerance);
+                let curr_diff = Math.abs(curr_time + shuffled_tracks[i].total_time -(this.total_time - start_time));
+                if (curr_diff<best_diff){
+                    best_i = i;
+                    best_diff = curr_diff;
+                }
+                ++i;
+            }
+
+            curr_list.push(shuffled_tracks[best_i]);
+            curr_time += shuffled_tracks[best_i].total_time;
+            this.within_tolerance = tol_check;
+        }
+        // TODO (eventually if needed): improve the selection using KNAPSACK optimization? Recursive functions (Wave function collapse)? 
         
         this.tracks = curr_list;
         this.updateActualTime();
         this.excess_time = this.actual_time - this.total_time;
-
+        console.log("Execess time", toHHMMSS(this.excess_time));
         // console.log("END TRACKLIST CREATION")
 
         return 0;
@@ -144,6 +169,7 @@ export class Master{
         this.total_time = total_time;
         this.sections = sections;
         this.tracks = [];
+        this.tolerance = 60;
 
         // technical variables
         this.actual_time;  //actual length of generate track_list
@@ -162,21 +188,27 @@ export class Master{
         let extra_time = 0;
         let tolerance = 60;
         for(let i =0; i<n; i++){
-            this.sections[i].createTrackList(tolerance, extra_time);
+            this.sections[i].createTrackList(this.tolerance, extra_time);
             extra_time = this.sections[i].excess_time;
             this.tracks = this.tracks.concat(this.sections[i].tracks);
         }
 
-
+        this.updateActualTime();
+        this.excess_time = this.actual_time - this.total_time;
     }
 
     getArrayOfTrackIDs(){
         return this.tracks.map( (t) => t.id);
     }
 
+    updateActualTime() {
+        this.actual_time = this.tracks.reduce((sum, track) => sum + track.total_time, 0);
+    }
+
     logMasterInfo(){
-        console.log("*********** MASTER_PLAYILIST ", this.id, "***********");
+        console.log("***************** MASTER_PLAYILIST: " + this.id + " *****************");
         console.log()
+        console.log("------------------------------------------------");
         let N = this.sections.length;
         for(let i =0; i<N; i++){
             console.log("Section ", i);
@@ -185,8 +217,13 @@ export class Master{
             console.log("Required time", toHHMMSS(this.sections[i].total_time));
             console.log("Actual time", toHHMMSS(this.sections[i].actual_time));
             //console.log("Required time", this.sections[i].total_time);
-            if(i+1< N) console.log("------------------------------------------------");
+            console.log("Tolerance " + (this.sections[i].within_tolerance? "PASSED :)":"FAILED :("));
+
+            console.log("------------------------------------------------");
         }
+
+        console.log("ACTUAL TIME:", toHHMMSS(this.actual_time));
+        console.log("EXCESS TIME:", toHHMMSS(this.excess_time));
         console.log("********************************************************");
     }
 }

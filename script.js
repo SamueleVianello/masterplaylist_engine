@@ -22,6 +22,7 @@ fetch('./spotify_playlist.json')
         let secs = [sec1,sec2,sec3];
 
         let my_master = new Master("testmaster", 45*60, secs);
+        my_master.tolerance = 10;
         my_master.generateMaster();
         my_master.logMasterInfo()
 
