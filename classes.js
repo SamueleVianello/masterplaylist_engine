@@ -115,6 +115,8 @@ export class Section{
         }
 
         // TODO: if curr_time is NOT within tolerance try to swap last track for a different one
+        let best_i = i-1;
+        
         
         this.tracks = curr_list;
         this.updateActualTime();
@@ -127,7 +129,7 @@ export class Section{
 
 
     updateActualTime() {
-        this.actual_time = this.tracks.reduce((sum, track) => sum + track.time, 0);
+        this.actual_time = this.tracks.reduce((sum, track) => sum + track.total_time, 0);
     }
 
     copy(){
@@ -157,11 +159,34 @@ export class Master{
         //TODO improve code
         let n = this.sections.length;
         console.log(n);
+        let extra_time = 0;
+        let tolerance = 60;
         for(let i =0; i<n; i++){
-            this.sections[i].createTrackList();
+            this.sections[i].createTrackList(tolerance, extra_time);
+            extra_time = this.sections[i].excess_time;
             this.tracks = this.tracks.concat(this.sections[i].tracks);
         }
 
 
+    }
+
+    getArrayOfTrackIDs(){
+        return this.tracks.map( (t) => t.id);
+    }
+
+    logMasterInfo(){
+        console.log("*********** MASTER_PLAYILIST ", this.id, "***********");
+        console.log()
+        let N = this.sections.length;
+        for(let i =0; i<N; i++){
+            console.log("Section ", i);
+            console.log("ID: ",this.sections[i].id);
+            console.log("Number of tracks", this.sections[i].tracks.length);
+            console.log("Required time", toHHMMSS(this.sections[i].total_time));
+            console.log("Actual time", toHHMMSS(this.sections[i].actual_time));
+            //console.log("Required time", this.sections[i].total_time);
+            if(i+1< N) console.log("------------------------------------------------");
+        }
+        console.log("********************************************************");
     }
 }

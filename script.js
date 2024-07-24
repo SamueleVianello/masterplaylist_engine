@@ -3,7 +3,6 @@ import {Track, Playlist, Section, Master} from './classes.js';
 import {getArrayOfTrackIDs, toHHMMSS} from './classes.js';
 
 
-let imported_tracks=[];
 fetch('./spotify_playlist.json')
       .then(response => response.json())
       .then(data => {
@@ -24,12 +23,13 @@ fetch('./spotify_playlist.json')
 
         let my_master = new Master("testmaster", 45*60, secs);
         my_master.generateMaster();
+        my_master.logMasterInfo()
 
         // The generated array of tracks is saved in my_master.tracks:
-        Playlist.logTracks(my_master.tracks);
+        //Playlist.logTracks(my_master.tracks);
 
         // Get a simple array of trackIDs
-        let track_list = getArrayOfTrackIDs(my_master.tracks);
+        let track_list = getArrayOfTrackIDs(my_master.tracks); //NOTE: make it a static function within Masteplaylist class
         console.log(track_list)
     })
       .catch(error => console.error('Error fetching the JSON data:', error));
