@@ -32,6 +32,8 @@ fetch('./spotify_playlist.json')
         // Get a simple array of trackIDs
         let track_list = getArrayOfTrackIDs(my_master.tracks); //NOTE: make it a static function within Masteplaylist class
         console.log(track_list)
+
+        console.log(JSON.stringify(my_master))
     })
       .catch(error => console.error('Error fetching the JSON data:', error));
 

@@ -37,6 +37,13 @@ export class Track {
     copy(){
         return new Track(this.id, this.total_time)
     }
+
+    toJSON() {
+        return Object.getOwnPropertyNames(this).reduce((a, b) => {
+          a[b] = this[b];
+          return a;
+        }, {});
+    }
 }
 
 
@@ -64,6 +71,13 @@ export class Playlist {
 
     copy(){
         return new Playlist(this.id, arrayCopy(this.tracks));
+    }
+
+    toJSON() {
+        return Object.getOwnPropertyNames(this).reduce((a, b) => {
+          a[b] = this[b];
+          return a;
+        }, {});
     }
 
     static calculateTotalTime(tracks) {
@@ -160,6 +174,13 @@ export class Section{
     copy(){
         return new Section(this.id, this.total_time, this.playlist.copy());
     }
+
+    toJSON() {
+        return Object.getOwnPropertyNames(this).reduce((a, b) => {
+          a[b] = this[b];
+          return a;
+        }, {});
+    }
 }
 
 
@@ -225,5 +246,12 @@ export class Master{
         console.log("ACTUAL TIME:", toHHMMSS(this.actual_time));
         console.log("EXCESS TIME:", toHHMMSS(this.excess_time));
         console.log("********************************************************");
+    }
+
+    toJSON() {
+        return Object.getOwnPropertyNames(this).reduce((a, b) => {
+          a[b] = this[b];
+          return a;
+        }, {});
     }
 }

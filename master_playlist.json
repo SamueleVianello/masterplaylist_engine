@@ -1,0 +1,400 @@
+{
+    "id": "testmaster",
+    "total_time": 2700,
+    "sections": [
+      {
+        "id": "XXX",
+        "total_time": 600,
+        "playlist": {
+          "id": "3C8poR69vANO2xuwDRQnWL",
+          "tracks": [
+            {
+              "id": "20I6sIOMTCkB6w7ryavxtO",
+              "total_time": 193.4
+            },
+            {
+              "id": "7wZUrN8oemZfsEd1CGkbXE",
+              "total_time": 262.466
+            },
+            {
+              "id": "6s8nHXTJVqFjXE4yVZPDHR",
+              "total_time": 185.586
+            },
+            {
+              "id": "6ucR4KfvsBFWCMVFDvyKKl",
+              "total_time": 184.4
+            },
+            {
+              "id": "4E5P1XyAFtrjpiIxkydly4",
+              "total_time": 182.306
+            },
+            {
+              "id": "3ZFTkvIE7kyPt6Nu3PEa7V",
+              "total_time": 218.09300000000002
+            },
+            {
+              "id": "7GCElX2eJA5t0AFWw3WzKn",
+              "total_time": 204.285
+            },
+            {
+              "id": "0R03f3Axt495bkgGhivLEe",
+              "total_time": 313.133
+            },
+            {
+              "id": "5xYC48nOppVemY6U5GRGTb",
+              "total_time": 210.853
+            },
+            {
+              "id": "286TLtk120rnrmVeQClDTc",
+              "total_time": 198.44
+            },
+            {
+              "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+              "total_time": 202.066
+            },
+            {
+              "id": "2CEgGE6aESpnmtfiZwYlbV",
+              "total_time": 202.613
+            },
+            {
+              "id": "7HOWDvDKIriIpMPoCITsHc",
+              "total_time": 229.413
+            },
+            {
+              "id": "5rgy6ghBq1eRApCkeUdJXf",
+              "total_time": 250.626
+            },
+            {
+              "id": "6O20JhBJPePEkBdrB5sqRx",
+              "total_time": 225.14600000000002
+            },
+            {
+              "id": "0TwBtDAWpkpM3srywFVOV5",
+              "total_time": 235.933
+            },
+            {
+              "id": "6RtPijgfPKROxEzTHNRiDp",
+              "total_time": 224.84
+            },
+            {
+              "id": "3UGIZ8qcrMTwzLbx6Kttqt",
+              "total_time": 171.333
+            },
+            {
+              "id": "0Oe49j06Bjrxs8PltuVeaW",
+              "total_time": 230.906
+            },
+            {
+              "id": "3jlbL2OTD5YmIunYzgQTAN",
+              "total_time": 338.853
+            }
+          ],
+          "total_time": 4464.691000000001
+        },
+        "tracks": [
+          {
+            "id": "6RtPijgfPKROxEzTHNRiDp",
+            "total_time": 224.84
+          },
+          {
+            "id": "2CEgGE6aESpnmtfiZwYlbV",
+            "total_time": 202.613
+          },
+          {
+            "id": "4E5P1XyAFtrjpiIxkydly4",
+            "total_time": 182.306
+          }
+        ],
+        "within_tolerance": true,
+        "actual_time": 609.759,
+        "excess_time": 9.759000000000015
+      },
+      {
+        "id": "YYY",
+        "total_time": 900,
+        "playlist": {
+          "id": "3C8poR69vANO2xuwDRQnWL",
+          "tracks": [
+            {
+              "id": "20I6sIOMTCkB6w7ryavxtO",
+              "total_time": 193.4
+            },
+            {
+              "id": "7wZUrN8oemZfsEd1CGkbXE",
+              "total_time": 262.466
+            },
+            {
+              "id": "6s8nHXTJVqFjXE4yVZPDHR",
+              "total_time": 185.586
+            },
+            {
+              "id": "6ucR4KfvsBFWCMVFDvyKKl",
+              "total_time": 184.4
+            },
+            {
+              "id": "4E5P1XyAFtrjpiIxkydly4",
+              "total_time": 182.306
+            },
+            {
+              "id": "3ZFTkvIE7kyPt6Nu3PEa7V",
+              "total_time": 218.09300000000002
+            },
+            {
+              "id": "7GCElX2eJA5t0AFWw3WzKn",
+              "total_time": 204.285
+            },
+            {
+              "id": "0R03f3Axt495bkgGhivLEe",
+              "total_time": 313.133
+            },
+            {
+              "id": "5xYC48nOppVemY6U5GRGTb",
+              "total_time": 210.853
+            },
+            {
+              "id": "286TLtk120rnrmVeQClDTc",
+              "total_time": 198.44
+            },
+            {
+              "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+              "total_time": 202.066
+            },
+            {
+              "id": "2CEgGE6aESpnmtfiZwYlbV",
+              "total_time": 202.613
+            },
+            {
+              "id": "7HOWDvDKIriIpMPoCITsHc",
+              "total_time": 229.413
+            },
+            {
+              "id": "5rgy6ghBq1eRApCkeUdJXf",
+              "total_time": 250.626
+            },
+            {
+              "id": "6O20JhBJPePEkBdrB5sqRx",
+              "total_time": 225.14600000000002
+            },
+            {
+              "id": "0TwBtDAWpkpM3srywFVOV5",
+              "total_time": 235.933
+            },
+            {
+              "id": "6RtPijgfPKROxEzTHNRiDp",
+              "total_time": 224.84
+            },
+            {
+              "id": "3UGIZ8qcrMTwzLbx6Kttqt",
+              "total_time": 171.333
+            },
+            {
+              "id": "0Oe49j06Bjrxs8PltuVeaW",
+              "total_time": 230.906
+            },
+            {
+              "id": "3jlbL2OTD5YmIunYzgQTAN",
+              "total_time": 338.853
+            }
+          ],
+          "total_time": 4464.691000000001
+        },
+        "tracks": [
+          {
+            "id": "5rgy6ghBq1eRApCkeUdJXf",
+            "total_time": 250.626
+          },
+          {
+            "id": "286TLtk120rnrmVeQClDTc",
+            "total_time": 198.44
+          },
+          {
+            "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+            "total_time": 202.066
+          },
+          {
+            "id": "6ucR4KfvsBFWCMVFDvyKKl",
+            "total_time": 184.4
+          },
+          {
+            "id": "3UGIZ8qcrMTwzLbx6Kttqt",
+            "total_time": 171.333
+          }
+        ],
+        "within_tolerance": false,
+        "actual_time": 1006.865,
+        "excess_time": 106.86500000000001
+      },
+      {
+        "id": "ZZZ",
+        "total_time": 1200,
+        "playlist": {
+          "id": "3C8poR69vANO2xuwDRQnWL",
+          "tracks": [
+            {
+              "id": "20I6sIOMTCkB6w7ryavxtO",
+              "total_time": 193.4
+            },
+            {
+              "id": "7wZUrN8oemZfsEd1CGkbXE",
+              "total_time": 262.466
+            },
+            {
+              "id": "6s8nHXTJVqFjXE4yVZPDHR",
+              "total_time": 185.586
+            },
+            {
+              "id": "6ucR4KfvsBFWCMVFDvyKKl",
+              "total_time": 184.4
+            },
+            {
+              "id": "4E5P1XyAFtrjpiIxkydly4",
+              "total_time": 182.306
+            },
+            {
+              "id": "3ZFTkvIE7kyPt6Nu3PEa7V",
+              "total_time": 218.09300000000002
+            },
+            {
+              "id": "7GCElX2eJA5t0AFWw3WzKn",
+              "total_time": 204.285
+            },
+            {
+              "id": "0R03f3Axt495bkgGhivLEe",
+              "total_time": 313.133
+            },
+            {
+              "id": "5xYC48nOppVemY6U5GRGTb",
+              "total_time": 210.853
+            },
+            {
+              "id": "286TLtk120rnrmVeQClDTc",
+              "total_time": 198.44
+            },
+            {
+              "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+              "total_time": 202.066
+            },
+            {
+              "id": "2CEgGE6aESpnmtfiZwYlbV",
+              "total_time": 202.613
+            },
+            {
+              "id": "7HOWDvDKIriIpMPoCITsHc",
+              "total_time": 229.413
+            },
+            {
+              "id": "5rgy6ghBq1eRApCkeUdJXf",
+              "total_time": 250.626
+            },
+            {
+              "id": "6O20JhBJPePEkBdrB5sqRx",
+              "total_time": 225.14600000000002
+            },
+            {
+              "id": "0TwBtDAWpkpM3srywFVOV5",
+              "total_time": 235.933
+            },
+            {
+              "id": "6RtPijgfPKROxEzTHNRiDp",
+              "total_time": 224.84
+            },
+            {
+              "id": "3UGIZ8qcrMTwzLbx6Kttqt",
+              "total_time": 171.333
+            },
+            {
+              "id": "0Oe49j06Bjrxs8PltuVeaW",
+              "total_time": 230.906
+            },
+            {
+              "id": "3jlbL2OTD5YmIunYzgQTAN",
+              "total_time": 338.853
+            }
+          ],
+          "total_time": 4464.691000000001
+        },
+        "tracks": [
+          {
+            "id": "0TwBtDAWpkpM3srywFVOV5",
+            "total_time": 235.933
+          },
+          {
+            "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+            "total_time": 202.066
+          },
+          {
+            "id": "3ZFTkvIE7kyPt6Nu3PEa7V",
+            "total_time": 218.09300000000002
+          },
+          {
+            "id": "7HOWDvDKIriIpMPoCITsHc",
+            "total_time": 229.413
+          },
+          {
+            "id": "2CEgGE6aESpnmtfiZwYlbV",
+            "total_time": 202.613
+          }
+        ],
+        "within_tolerance": false,
+        "actual_time": 1088.1180000000002,
+        "excess_time": -111.88199999999983
+      }
+    ],
+    "tracks": [
+      {
+        "id": "6RtPijgfPKROxEzTHNRiDp",
+        "total_time": 224.84
+      },
+      {
+        "id": "2CEgGE6aESpnmtfiZwYlbV",
+        "total_time": 202.613
+      },
+      {
+        "id": "4E5P1XyAFtrjpiIxkydly4",
+        "total_time": 182.306
+      },
+      {
+        "id": "5rgy6ghBq1eRApCkeUdJXf",
+        "total_time": 250.626
+      },
+      {
+        "id": "286TLtk120rnrmVeQClDTc",
+        "total_time": 198.44
+      },
+      {
+        "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+        "total_time": 202.066
+      },
+      {
+        "id": "6ucR4KfvsBFWCMVFDvyKKl",
+        "total_time": 184.4
+      },
+      {
+        "id": "3UGIZ8qcrMTwzLbx6Kttqt",
+        "total_time": 171.333
+      },
+      {
+        "id": "0TwBtDAWpkpM3srywFVOV5",
+        "total_time": 235.933
+      },
+      {
+        "id": "5Q0Nhxo0l2bP3pNjpGJwV1",
+        "total_time": 202.066
+      },
+      {
+        "id": "3ZFTkvIE7kyPt6Nu3PEa7V",
+        "total_time": 218.09300000000002
+      },
+      {
+        "id": "7HOWDvDKIriIpMPoCITsHc",
+        "total_time": 229.413
+      },
+      {
+        "id": "2CEgGE6aESpnmtfiZwYlbV",
+        "total_time": 202.613
+      }
+    ],
+    "tolerance": 10,
+    "excess_time": 4.741999999999734,
+    "actual_time": 2704.7419999999997
+  }
