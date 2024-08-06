@@ -140,7 +140,7 @@ export class Section{
             let best_i = i;
             let best_diff = Math.abs(curr_time + shuffled_tracks[i].total_time -(this.total_time - start_time));
             
-            console.log(tol_check);
+            //console.log(tol_check);
             while(i<len & !tol_check){
                 tol_check = (Math.abs(curr_time + shuffled_tracks[i].total_time -(this.total_time - start_time)) < tolerance);
                 let curr_diff = Math.abs(curr_time + shuffled_tracks[i].total_time -(this.total_time - start_time));
@@ -160,7 +160,7 @@ export class Section{
         this.tracks = curr_list;
         this.updateActualTime();
         this.excess_time = this.actual_time - this.total_time;
-        console.log("Execess time", toHHMMSS(this.excess_time));
+        //console.log("Execess time", toHHMMSS(this.excess_time));
         // console.log("END TRACKLIST CREATION")
 
         return 0;
@@ -205,7 +205,7 @@ export class Master{
     generateMaster(){
         //TODO improve code
         let n = this.sections.length;
-        console.log(n);
+        //console.log(n);
         let extra_time = 0;
         let tolerance = 60;
         for(let i =0; i<n; i++){
